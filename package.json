@@ -1,0 +1,25 @@
+{
+  "name": "string-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dabhekarankit/string-calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dabhekarankit/string-calculator/issues"
+  },
+  "homepage": "https://github.com/dabhekarankit/string-calculator#readme",
+  "devDependencies": {
+    "chai": "^5.1.2",
+    "mocha": "^10.8.2"
+  }
+}
