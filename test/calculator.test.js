@@ -48,4 +48,15 @@ describe("String Calculator", () => {
         expect(Add("1000,1001,999")).to.equal(1999);
         expect(Add("//;\n1000;1001;1")).to.equal(1001);
     });
+
+    // support delimiters of any length
+    it("should support delimiters of any length", () => {
+        expect(Add("//[***]\n1***2***3")).to.equal(6); // Custom delimiter "***"
+    });
+
+    // multiple delimiters
+    it("should support multiple delimiters of any length", () => {
+        expect(Add("//[*][%]\n1*2%3")).to.equal(6); // Multiple single-character delimiters
+        expect(Add("//[***][%%]\n1***2%%3")).to.equal(6); // Multiple multi-character delimiters
+    });
 });

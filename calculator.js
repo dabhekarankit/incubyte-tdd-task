@@ -15,13 +15,25 @@ function Add(numbers) {
 
     // Check for custom delimiter
     if (numbers.startsWith("//")) {
-        const delimiterMatch = numbers.match(/^\/\/(.+)\n/);
+        // check if multiple delimiter string or single
+        if (numbers[2] === "[") {
+            const delimiterMatch = numbers.match(/^\/\/(\[.+?\])+\n/);
+            if (delimiterMatch) {
+                const allDelimiters = numbers.match(/\[.+?\]/g);
+                const delimiterRegexParts = allDelimiters.map((d) =>
+                    d.slice(1, -1).replace(/[-[\]/{}()*+?.\\^$|]/g, "\\$&")
+                );
+                delimiter = new RegExp(delimiterRegexParts.join("|"));
+                numbers = numbers.slice(delimiterMatch[0].length);
+            }
+        } else {
+            const delimiterMatch = numbers.match(/^\/\/(.+)\n/);
+            if (delimiterMatch) {
+                delimiter = delimiterMatch[1];
 
-        if (delimiterMatch) {
-            delimiter = delimiterMatch[1];
-
-            numbers = numbers.slice(delimiterMatch[0].length);
-            delimiter = new RegExp(`[${delimiter.replace(/[-[\]/{}()*+?.\\^$|]/g, "\\$&")}]`);
+                numbers = numbers.slice(delimiterMatch[0].length);
+                delimiter = new RegExp(`[${delimiter.replace(/[-[\]/{}()*+?.\\^$|]/g, "\\$&")}]`);
+            }
         }
     }
 
