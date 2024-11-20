@@ -24,4 +24,11 @@ describe("String Calculator", () => {
     it("should return the sum of comma and slash n separated numbers", () => {
         expect(Add("1\n2,3")).to.equal(6);
     });
+
+    // Custom delimiters
+    it("should support custom single-character delimiters", () => {
+        expect(Add("//;\n1;2")).to.equal(3);
+        expect(Add("//;\n2;2")).to.equal(4);
+        expect(Add("//;\n2;2;1")).to.equal(5);
+    });
 });
