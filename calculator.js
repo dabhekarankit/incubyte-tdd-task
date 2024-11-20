@@ -11,8 +11,11 @@ function Add(numbers) {
         return Number(numbers);
     }
 
+    // replace /n tu ,
+    const sanitizedInput = numbers.replace(/\n/g, ",");
+
     // Split the string by commas and parse the values
-    const numArray = numbers.split(",").map(Number);
+    const numArray = sanitizedInput.split(",").map(Number);
     return numArray.reduce((sum, num) => sum + num, 0); // Sum the numbers
 }
 
