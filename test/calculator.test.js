@@ -31,4 +31,14 @@ describe("String Calculator", () => {
         expect(Add("//;\n2;2")).to.equal(4);
         expect(Add("//;\n2;2;1")).to.equal(5);
     });
+
+    // Negative number exception for single negative number
+    it("should throw an exception for a single negative number", () => {
+        expect(() => Add("1,-2")).to.throw("Negatives not allowed: -2");
+    });
+
+    // Negative number exception for multiple negative number
+    it("should throw an exception for multiple negative numbers", () => {
+        expect(() => Add("-1,-2,3,-4")).to.throw("Negatives not allowed: -1, -2, -4");
+    });
 });
