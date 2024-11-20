@@ -13,4 +13,10 @@ describe("String Calculator", () => {
         expect(Add(2)).to.equal(2);
         expect(Add("5")).to.equal(5);
     });
+
+    // Sum of comma separated values
+    it("should return the sum of two numbers", () => {
+        expect(Add("1,2")).to.equal(3);
+        expect(Add("10,20")).to.equal(30);
+    });
 });

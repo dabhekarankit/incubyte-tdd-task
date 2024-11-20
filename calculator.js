@@ -10,6 +10,10 @@ function Add(numbers) {
     if (typeof numbers === "string" && /^[0-9]+$/.test(numbers)) {
         return Number(numbers);
     }
+
+    // Split the string by commas and parse the values
+    const numArray = numbers.split(",").map(Number);
+    return numArray.reduce((sum, num) => sum + num, 0); // Sum the numbers
 }
 
 export { Add };
