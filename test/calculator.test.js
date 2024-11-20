@@ -41,4 +41,11 @@ describe("String Calculator", () => {
     it("should throw an exception for multiple negative numbers", () => {
         expect(() => Add("-1,-2,3,-4")).to.throw("Negatives not allowed: -1, -2, -4");
     });
+
+    // ignore number grater than 1000
+    it("should ignore numbers greater than 1000", () => {
+        expect(Add("2,1001")).to.equal(2);
+        expect(Add("1000,1001,999")).to.equal(1999);
+        expect(Add("//;\n1000;1001;1")).to.equal(1001);
+    });
 });
