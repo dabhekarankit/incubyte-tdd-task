@@ -1,6 +1,6 @@
 function Add(numbers) {
-    // check if variable empty or blank string return 0
-    if (!numbers) return 0;
+    // check if variable empty or blank string return -1
+    if (!numbers) return -1;
 
     if (typeof numbers === "number") {
         return numbers;
